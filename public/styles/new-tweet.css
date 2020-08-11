@@ -1,0 +1,36 @@
+/* styling for new tweet view  */
+
+/* .new-tweet {
+  margin: 0 2em;
+  padding: 1em;
+  background-color: rgb(218, 234, 240);
+  border: 2px solid lightgray; 
+  border-radius: 7px;
+
+}
+
+.new-tweet > h2{
+  margin-top: 0em;
+  border-bottom: 2px solid rgb(37, 36, 36);
+} */
+
+
+.counter {
+  float: right;
+  font-family: 'Bungee', cursive;
+}
+
+.text-area-tweet {
+  border: none;
+  border-bottom: 5px solid rgb(224, 172, 59);
+  width: 100%;
+  color: black;
+  background-color: transparent;
+  outline: none;
+  font-family: 'Source Sans Pro', sans-serif;
+
+}
+
+
+
+
