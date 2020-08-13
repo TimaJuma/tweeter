@@ -65,6 +65,10 @@
       <!-- section to show user and input field for tweet  -->
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
+        <!-- container for error messages  -->
+        <div id='error-msg' ></div>
+
+        <!-- form for tweet subsmission  -->
         <form  id="tweetSubmit">
           <i class="fas fa-pencil-alt"></i>
           <label for="tweet-text">What are you humming about?</label>
@@ -76,9 +80,9 @@
           </div>
         </form>
       </section>
-      <div class="error-msg"></div>
+      
 
-      <button id="generate">GENERATE</button>
+      <!-- <button id="generate">GENERATE</button> -->
 
       <!-- section to view tweet posted by user  -->
       <div id="tweets">

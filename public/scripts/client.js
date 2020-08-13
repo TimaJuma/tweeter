@@ -60,17 +60,23 @@ const loadTweets = () => {
 };
 
 
+const loadLastTweet = () => {
+  $.ajax('http://localhost:4040/tweets', {method: 'GET'})
+    .then((data) => {
+      const newText = createTweetElement(data[data.length - 1]);
+    $('#tweets').prepend(newText)
+    })
+};
+
 
 
 $(document).ready(() => {
 
   loadTweets();
 
-
-
   $('#generate').on('click', ()=> {
     const newText = createTweetElement(tweetData);
-    $('#tweets').append(newText)
+    $('#tweets').prepend(newText)
   });
 
 
@@ -83,26 +89,37 @@ $(document).ready(() => {
     //check for user input
     const inputVal = $('#tweet-text').val();
     if (!inputVal) {
-      alert('NO input')
-      const errorMsg = `No input`
-      document.querySelector('.error-msg').innerHTML = errorMsg;
-    }
-    const serialized = $form.serialize();
-    console.log(serialized);
-    
-    $.ajax({
-      url: 'http://localhost:4040/tweets',
-      method: 'POST', 
-      data: serialized})
-      .then(()=> {
-        loadTweets();
-        $('.counter').text(140);
-      })
-    
-    //clear input field after tweet submitted
-    $('#tweet-text').val("");
-    })
+      // alert('NO input')
+      const errorMsg = `<i class="fas fa-exclamation-triangle"></i>Please dont submit empty tweet. Try AGAIN!!!<i class="fas fa-exclamation-triangle"></i>`;
+      $('#error-msg').addClass('error-msg')
+      // const p = $('<p>').text(errorMsg)
+      // $('#error-msg').prepend(p)
+      document.querySelector('#error-msg').innerHTML = errorMsg
+    } else if (inputVal.length > 140) {
+      const errorMsg = `<i class="fas fa-exclamation-triangle"></i>Too long. Plz respect limit of 140 char! <i class="fas fa-exclamation-triangle"></i>`;
+      $('#error-msg').addClass('error-msg')
+      document.querySelector('#error-msg').innerHTML = errorMsg
+    } else{
+      const serialized = $form.serialize();
+      console.log(serialized);
 
+      $.ajax({
+        url: 'http://localhost:4040/tweets',
+        method: 'POST', 
+        data: serialized})
+        .then(()=> {
+          loadLastTweet();
+          $('.counter').text(140);
+        })
+      
+      //clear input field after tweet submitted
+      $('#tweet-text').val("");
+      $('#error-msg').removeClass('error-msg')
+      $('#error-msg').text("");
+    }
+    
+    })
+  
 
 });
 

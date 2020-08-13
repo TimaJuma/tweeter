@@ -90,8 +90,13 @@
 
 
 .error-msg {
-  color: red;
+  color: rgba(161, 34, 34, 0.795);
   font-size: large;
   font-family: 'Source Sans Pro', sans-serif;
   margin-bottom: 1em;
+  padding: 0.5rem;
+  border: 3px solid red;
+  text-align: center;
+  border-radius: 7px;
+  background-color: #fdc459;
 }
