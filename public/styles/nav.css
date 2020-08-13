@@ -1,12 +1,16 @@
 /* Nav bar style  */
 
 nav {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
   font-family: 'Bungee', cursive;
   color: #FFFFFF;
   height: 120px;
   background-color: #4056A1;
   box-sizing: border-box;
   padding: 1.5em;
+  top: 0;
 }
 
 nav span {
