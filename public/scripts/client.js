@@ -5,10 +5,11 @@
  */
 
 
-
-
-
-
+const escape =  function(str) {
+  let div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
 
 
 
@@ -74,10 +75,10 @@ $(document).ready(() => {
 
   loadTweets();
 
-  $('#generate').on('click', ()=> {
-    const newText = createTweetElement(tweetData);
-    $('#tweets').prepend(newText)
-  });
+  // $('#generate').on('click', ()=> {
+  //   const newText = createTweetElement(tweetData);
+  //   $('#tweets').prepend(newText)
+  // });
 
 
 
@@ -89,11 +90,8 @@ $(document).ready(() => {
     //check for user input
     const inputVal = $('#tweet-text').val();
     if (!inputVal) {
-      // alert('NO input')
       const errorMsg = `<i class="fas fa-exclamation-triangle"></i>Please dont submit empty tweet. Try AGAIN!!!<i class="fas fa-exclamation-triangle"></i>`;
       $('#error-msg').addClass('error-msg')
-      // const p = $('<p>').text(errorMsg)
-      // $('#error-msg').prepend(p)
       document.querySelector('#error-msg').innerHTML = errorMsg
     } else if (inputVal.length > 140) {
       const errorMsg = `<i class="fas fa-exclamation-triangle"></i>Too long. Plz respect limit of 140 char! <i class="fas fa-exclamation-triangle"></i>`;
@@ -106,13 +104,13 @@ $(document).ready(() => {
       $.ajax({
         url: 'http://localhost:4040/tweets',
         method: 'POST', 
-        data: serialized})
+        data: { text: escape($('#tweet-text').val()) }})  
         .then(()=> {
           loadLastTweet();
           $('.counter').text(140);
         })
       
-      //clear input field after tweet submitted
+      //clear input field and error message after tweet submitted
       $('#tweet-text').val("");
       $('#error-msg').removeClass('error-msg')
       $('#error-msg').text("");
