@@ -4,7 +4,13 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+ //module for time format
+// let moment = require('moment');
 
+
+// =========== HELPER FUNCTIONS =================
+
+// for handling XSS
 const escape =  function(str) {
   let div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
@@ -12,8 +18,7 @@ const escape =  function(str) {
 };
 
 
-
-
+// creating twit template
 const createTweetElement = (tweet) => {
   const user = tweet.user;
   const content = tweet.content.text;
@@ -29,7 +34,7 @@ const createTweetElement = (tweet) => {
   </header>
   <p>${content}</p>
   <footer>
-    <p>${created_at}</p>
+    <p>${moment(tweet.created_at).fromNow()}</p>
     <div>
       <i class="fas fa-flag"></i>
       <i class="fa fa-retweet" aria-hidden="true"></i>
@@ -42,7 +47,7 @@ return newTweet;
 }
 
 
-// render tweet array according to format
+// render each element of tweet array according to format
 const renderTweets = (tweetArr) => {
   tweetArr.forEach(tweet => {
     $('#tweets').prepend(createTweetElement(tweet))
@@ -73,13 +78,8 @@ const loadLastTweet = () => {
 
 $(document).ready(() => {
 
+  // when page loaded all tweets will be loaded from server/DB
   loadTweets();
-
-  // $('#generate').on('click', ()=> {
-  //   const newText = createTweetElement(tweetData);
-  //   $('#tweets').prepend(newText)
-  // });
-
 
 
   // submission of tweet via form
@@ -97,6 +97,8 @@ $(document).ready(() => {
       const errorMsg = `<i class="fas fa-exclamation-triangle"></i>Too long. Plz respect limit of 140 char! <i class="fas fa-exclamation-triangle"></i>`;
       $('#error-msg').addClass('error-msg')
       document.querySelector('#error-msg').innerHTML = errorMsg
+
+    // when user passed tweet in valid format
     } else{
       const serialized = $form.serialize();
       console.log(serialized);

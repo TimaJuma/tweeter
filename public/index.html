@@ -31,6 +31,7 @@
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js" integrity="sha512-rmZcZsyhe0/MAjquhTgiUcb4d9knaFc7b5xAfju483gbEXTkeJRUMIPk6s3ySZMYUHEcjKbjLjyddGWMrNEvZg==" crossorigin="anonymous"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
@@ -49,10 +50,9 @@
       <br>
     </nav>
 
-
-    <!-- avatar page  -->
-    <header>
-      <div>
+     <!-- avatar page  -->
+     <header>
+      <div id="avatar">
         <img src="/images/profile-hex.png">
       </div>
       <br>
@@ -60,9 +60,13 @@
         <h2 class="header-name">Your Name</h2>
       </div>
     </header>
+    
 
     <!-- Page-specific (main) content here -->
     <main class="container">
+
+
+       
 
       <!-- section to show user and input field for tweet  -->
       <section class="new-tweet">
@@ -77,43 +81,42 @@
           <textarea class="text-area-tweet" name="text" id="tweet-text" placeholder="tweet me..."></textarea>
           <br>
           <div>
-            <button class="btn btn-primary"><i class="fa fa-twitter" aria-hidden="true"></i> TWEET</button>
+            <button class="button"><i class="fa fa-twitter" aria-hidden="true"></i> TWEET</button>
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
+
+        <!-- section to view tweet posted by user  -->
+        <div id="tweets">
+          <article class="tweet">
+            <header>
+              <div>
+                <img src="/images/profile-hex.png">
+                <h3>Tima</h3>
+              </div>
+              <p>@TimaJuma</p>
+            </header>
+            <p>Hello world!</p>
+            <footer>
+              <p>10 days ago</p>
+              <div>
+                <i class="fas fa-flag"></i>
+                <i class="fa fa-retweet" aria-hidden="true"></i>
+                <i class="fa fa-heart" aria-hidden="true"></i>
+              </div>
+            </footer>
+          </article>
+        </div>
+
       </section>
       
 
-      <!-- <button id="generate">GENERATE</button> -->
-
-      <!-- section to view tweet posted by user  -->
-      <div id="tweets">
-        <article class="tweet">
-          <header>
-            <div>
-              <img src="/images/profile-hex.png">
-              <h3>Tima</h3>
-            </div>
-            <p>@TimaJuma</p>
-          </header>
-          <p>Hello world!</p>
-          <footer>
-            <p>10 days ago</p>
-            <div>
-              <i class="fas fa-flag"></i>
-              <i class="fa fa-retweet" aria-hidden="true"></i>
-              <i class="fa fa-heart" aria-hidden="true"></i>
-            </div>
-          </footer>
-        </article>
-      </div>
 
       
 
-      <!-- section to view tweets from other users  -->
-      <div>
+      
 
-      </div>
+
 
       
     </main>

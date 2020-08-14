@@ -54,6 +54,7 @@
   height: auto;
   padding: 1rem;
   background-color: antiquewhite;
+  width: 90%;
 }
 
 .tweet header div {
@@ -63,8 +64,8 @@
 
 
 .tweet > p {
-  padding-left: 1rem;
-  font-size: large;
+  padding-left: 1.5rem;
+  font-size: x-large;
 }
 
 .tweet header > p {
@@ -86,6 +87,10 @@
   flex-direction: row;
   justify-content: space-between;
   padding: 0.5rem;
+}
+
+.tweet footer > p {
+  font-size: medium;
 }
 
 

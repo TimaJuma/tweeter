@@ -2,15 +2,18 @@
 
 nav {
   overflow: hidden;
-  position: fixed;
-  width: 100%;
+  position: fixed; 
+  /* sticky */
+  /* width: 100%; */
   font-family: 'Bungee', cursive;
   color: #FFFFFF;
   height: 120px;
-  background-color: #4056A1;
+  z-index: 9999;
+  background-color: #fdc459;;
   box-sizing: border-box;
   padding: 1.5em;
   top: 0;
+  width: 100%;
 }
 
 nav span {
@@ -24,14 +27,46 @@ nav span {
 }
 
 
-.logo {
-  max-width: 100px;
-  margin: 3px;
-
-}
 
 
 .logo_div {
   display: flex;
   justify-content: flex-start;
+  max-width: 100px;
+  margin: 3px;
 }
+
+
+
+/* Resets margin: 0 */
+
+/* Mobile First */
+/* Nav */
+/* Header */
+/* Main */
+
+/* Common to all platforms */
+/* Utilities .super-title */
+
+/* Exception; very rare */
+/* Small tweaks for mobile */
+
+/* Next largest platform */
+@media only screen and (min-width: 800px) {
+  nav {
+    background-color: #4056A1;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

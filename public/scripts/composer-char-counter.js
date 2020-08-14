@@ -10,9 +10,14 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
     if (charsLeft < 0) {
       counter.style.color = 'red';
+      const errorMsg = `<i class="fas fa-exclamation-triangle"></i>Be careful with cahracter limit<i class="fas fa-exclamation-triangle"></i>`;
+      $('#error-msg').addClass('error-msg')
+      document.querySelector('#error-msg').innerHTML = errorMsg
       counter.innerHTML = charsLeft;
     } else {
       counter.style.color = 'black';
+      $('#error-msg').removeClass('error-msg')
+      $('#error-msg').text("");
       counter.innerHTML = charsLeft;
     }
     
