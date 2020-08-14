@@ -92,7 +92,7 @@ $(document).ready(() => {
     if (!inputVal) {
       const errorMsg = `<i class="fas fa-exclamation-triangle"></i>Please dont submit empty tweet. Try AGAIN!!!<i class="fas fa-exclamation-triangle"></i>`;
       $('#error-msg').addClass('error-msg')
-      document.querySelector('#error-msg').innerHTML = errorMsg
+      $('#error-msg').html(errorMsg).slideDown();
     } else if (inputVal.length > 140) {
       const errorMsg = `<i class="fas fa-exclamation-triangle"></i>Too long. Plz respect limit of 140 char! <i class="fas fa-exclamation-triangle"></i>`;
       $('#error-msg').addClass('error-msg')
