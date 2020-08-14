@@ -74,15 +74,22 @@ header {
 }
 
 
+
+/* responsive design for desktop view  */
+
 @media only screen and (min-width: 800px) {
+
+  main {
+    width: 90%;
+    margin: 15px;
+  }
   body {
     display: flex;
     flex-direction: row;
   }
   header {
     width: 35%;
-    margin-top: 1vw;
-    margin-right: 1vw;
+    margin: 15px;
     max-height: 400px;
   }
 

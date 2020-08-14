@@ -4,9 +4,6 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
- //module for time format
-// let moment = require('moment');
-
 
 // =========== HELPER FUNCTIONS =================
 
@@ -75,7 +72,7 @@ const loadLastTweet = () => {
 };
 
 
-
+//when all the content loaded
 $(document).ready(() => {
 
   // when page loaded all tweets will be loaded from server/DB
