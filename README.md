@@ -13,13 +13,16 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## View of Final Product
 
-screenshot of main page
+- Screenshot of main page
 !["Main of - Desktop version"](public/images/desktop_view.png)
 
 Mobile View
+
 !["Modile View"](public/images/mobile_view.png)
 
 error mesages
+
+
 !["page does nnot exist"](public/images/overlimit.png)
 
 !["page does nnot exist"](public/images/empty_tweet.png)
